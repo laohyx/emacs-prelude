@@ -22,14 +22,14 @@
 
 (prelude-require-package 'recentf)
 (recentf-mode 1)
-(setq recentf-max-saved-items 30)
-(setq recentf-max-menu-items 30)
+(setq recentf-max-saved-items 50)
+(setq recentf-max-menu-items 50)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 (add-to-list 'recentf-exclude "/.emacs.d/elpa/")
 (add-to-list 'recentf-exclude "/ido.last")
 (add-to-list 'recentf-exclude "/company-statistics-cache.el")
 (add-to-list 'recentf-exclude "/.git/COMMIT_EDITMSG")
-
+(add-to-list 'recentf-exclude "/.emacs.desktops")
 
 
 (prelude-require-package 'multiple-cursors)
@@ -59,11 +59,6 @@
 (desktop-menu-mode)
 (setq desktop-menu-directory "~/.emacs.d/")
 (setq desktop-files-not-to-save "^$")
-
-(prelude-require-package 'window-number)
-(require 'window-number)
-(window-number-mode)
-(window-number-meta-mode)
 
 (prelude-require-package 'diminish)
 (require 'diminish)
