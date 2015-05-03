@@ -10,7 +10,7 @@
 (require 'irony)
 (defun my-c++-hooks ()
   (yas/minor-mode-on)
-  (when (member major-mode irony-known-modes)
+  (when (member major-mode irony-supported-major-modes)
     (irony-mode 1)))
 
 (add-hook 'c++-mode-hook 'my-c++-hooks)
