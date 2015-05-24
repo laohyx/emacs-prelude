@@ -66,3 +66,25 @@
 (prelude-require-package 'company-quickhelp)
 (require 'company-quickhelp)
 (company-quickhelp-mode 1)
+
+
+(prelude-require-package 'auto-dim-other-buffers)
+(add-hook 'after-init-hook (lambda ()
+                             (when (fboundp 'auto-dim-other-buffers-mode)
+                               (auto-dim-other-buffers-mode t))))
+
+(add-hook 'ggtags-find-tag-hook (lambda ()
+                                  (recenter)))
+
+(prelude-require-package 'hideshowvis)
+(dolist (hook (list 'emacs-lisp-mode-hook
+                    'c++-mode-hook))
+  (add-hook hook 'hideshowvis-enable))
+(hideshowvis-symbols)
+
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+(setq org-support-shift-select t)
+
+(prelude-require-package 'expand-region)

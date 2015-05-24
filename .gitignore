@@ -25,3 +25,5 @@ tramp
 /company-statistics-cache.el
 /.emacs.desktop*
 /.mc-lists.el
+/irony/
+/newsticker/

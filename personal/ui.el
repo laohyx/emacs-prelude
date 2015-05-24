@@ -23,3 +23,5 @@
 
 
 (setq compilation-scroll-output 1)
+
+(global-hl-line-mode -1)
