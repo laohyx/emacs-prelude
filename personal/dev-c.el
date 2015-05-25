@@ -39,7 +39,6 @@
 (eval-after-load 'flycheck
   '(add-hook 'flycheck-mode-hook 'flycheck-irony-setup))
 
-;; jump between .h and .c files
-(add-hook 'c-mode-common-hook
-          (lambda()
-            (local-set-key  (kbd "C-c o") 'ff-find-other-file)))
+(prelude-require-package 'flycheck-irony)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-irony-setup))

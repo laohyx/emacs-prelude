@@ -87,4 +87,4 @@
 
 (setq org-support-shift-select t)
 
-(prelude-require-package 'expand-region)
+(prelude-require-package 'ag)
