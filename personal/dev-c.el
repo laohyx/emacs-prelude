@@ -4,7 +4,10 @@
 (add-hook 'c-mode-hook 'ggtags-mode)
 (add-hook 'objc-mode-hook 'ggtags-mode)
 
-
+;; c-headers
+(prelude-require-package 'company-c-headers)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-c-headers))
 ;; irony
 (prelude-require-package 'irony)
 (require 'irony)
