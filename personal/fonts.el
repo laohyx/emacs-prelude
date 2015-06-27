@@ -18,7 +18,7 @@
                        &optional chinese-fonts-scale
                        )
   (setq chinese-fonts-scale (or chinese-fonts-scale 1.2))
-  (setq face-font-rescale-alist `(("FangSong" . ,chinese-fonts-scale)
+  (setq face-font-rescale-alist `(("KaiTi" . ,chinese-fonts-scale)
                                   ("Microsoft Yahei" . ,chinese-fonts-scale)
                                   ("Microsoft_Yahei" . ,chinese-fonts-scale)
                                   ("微软雅黑" . ,chinese-fonts-scale)
@@ -54,7 +54,7 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
 
 
 (defvar bhj-english-fonts '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New"))
-(defvar bhj-chinese-fonts '("FangSong" "Microsoft Yahei" "Microsoft_Yahei" "微软雅黑" "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
+(defvar bhj-chinese-fonts '("KaiTi" "Microsoft Yahei" "Microsoft_Yahei" "微软雅黑" "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
 
 (qiang-set-font
  bhj-english-fonts
@@ -86,7 +86,7 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
         (message "Your font size is set to %.1f" next-size))))
 
 (global-set-key [(control x) (meta -)] (lambda () (interactive) (bhj-step-frame-font-size -1)))
-(global-set-key [(control x) (meta +)] (lambda () (interactive) (bhj-step-frame-font-size 1)))
+(global-set-key [(control x) (meta =)] (lambda () (interactive) (bhj-step-frame-font-size 1)))
 
 (set-face-attribute 'default nil :font (font-spec))
 

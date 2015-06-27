@@ -68,11 +68,6 @@
 (company-quickhelp-mode 1)
 
 
-(prelude-require-package 'auto-dim-other-buffers)
-(add-hook 'after-init-hook (lambda ()
-                             (when (fboundp 'auto-dim-other-buffers-mode)
-                               (auto-dim-other-buffers-mode t))))
-
 (add-hook 'ggtags-find-tag-hook (lambda ()
                                   (recenter)))
 
@@ -103,3 +98,12 @@
                                (substitute-key-definition 'company-complete-common
                                                           'company-yasnippet-or-completion
                                                           company-active-map)))
+
+
+(add-hook 'LaTeX-mode-hook (lambda ()
+                             (flycheck-mode -1)
+                             (whitespace-mode -1)
+                             (auto-fill-mode -1)) t)
+
+(add-hook 'shell-mode-hook (lambda ()
+                             (company-mode -1)) t)
