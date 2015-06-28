@@ -1,5 +1,5 @@
 (if (window-system)
-    (setq prelude-theme 'solarized)
+    (setq prelude-theme 'leuven)
   (setq prelude-theme nil))
 
 (setq prelude-guru nil)
