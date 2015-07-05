@@ -24,6 +24,9 @@
 ;; (set-face-attribute 'default nil :height 100)
 
 
+(prelude-require-package 'window-numbering)
+(window-numbering-mode 1)
+
 (setq compilation-scroll-output 1)
 
 (global-hl-line-mode -1)
@@ -33,4 +36,3 @@
 ;; (add-hook 'after-init-hook (lambda ()
 ;;                              (when (fboundp 'auto-dim-other-buffers-mode)
 ;;                                (auto-dim-other-buffers-mode t))))
-

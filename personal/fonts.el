@@ -56,22 +56,7 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
 (defvar bhj-english-fonts '("Monaco" "Consolas" "DejaVu Sans Mono" "Monospace" "Courier New"))
 (defvar bhj-chinese-fonts '("KaiTi" "Microsoft Yahei" "Microsoft_Yahei" "微软雅黑" "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
 
-(qiang-set-font
- bhj-english-fonts
- 12.5
- bhj-chinese-fonts)
-
 (defvar chinese-font-size-scale-alist nil)
-
-;; On different platforms, I need to set different scaling rate for
-;; differnt font size.
-(cond
- ((and (boundp '*is-a-mac*) *is-a-mac*)
-  (setq chinese-font-size-scale-alist '((10.5 . 1.3) (11.5 . 1.3) (16 . 1.3) (18 . 1.25))))
- ((and (boundp '*is-a-win*) *is-a-win*)
-  (setq chinese-font-size-scale-alist '((11.5 . 1.25) (16 . 1.25))))
- (t ;; is a linux:-)
-  (setq chinese-font-size-scale-alist '((16 . 1.25)))))
 
 (defvar bhj-english-font-size-steps '(9 10.5 11.5 12.5 14 16 18 20 22))
 (defun bhj-step-frame-font-size (step)
@@ -85,10 +70,28 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
         (qiang-set-font bhj-english-fonts next-size bhj-chinese-fonts (cdr (assoc next-size chinese-font-size-scale-alist)))
         (message "Your font size is set to %.1f" next-size))))
 
-(global-set-key [(control x) (meta -)] (lambda () (interactive) (bhj-step-frame-font-size -1)))
-(global-set-key [(control x) (meta =)] (lambda () (interactive) (bhj-step-frame-font-size 1)))
+(defun init-fonts-adjust ()
+  (qiang-set-font
+   bhj-english-fonts
+   12.5
+   bhj-chinese-fonts)
+  ;; On different platforms, I need to set different scaling rate for
+  ;; differnt font size.
+  (cond
+   ((and (boundp '*is-a-mac*) *is-a-mac*)
+    (setq chinese-font-size-scale-alist '((10.5 . 1.3) (11.5 . 1.3) (16 . 1.3) (18 . 1.25))))
+   ((and (boundp '*is-a-win*) *is-a-win*)
+    (setq chinese-font-size-scale-alist '((11.5 . 1.25) (16 . 1.25))))
+   (t ;; is a linux:-)
+    (setq chinese-font-size-scale-alist '((16 . 1.25)))))
 
-(set-face-attribute 'default nil :font (font-spec))
+
+  (global-set-key [(control x) (meta -)] (lambda () (interactive) (bhj-step-frame-font-size -1)))
+  (global-set-key [(control x) (meta =)] (lambda () (interactive) (bhj-step-frame-font-size 1)))
+
+  (set-face-attribute 'default nil :font (font-spec)))
+(if window-system
+    (init-fonts-adjust))
 
 ; {%org-mode%}
 ; here are 20 hanzi and 40 english chars, see if they are the same width

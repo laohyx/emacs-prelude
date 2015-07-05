@@ -14,7 +14,13 @@
 (defun my-c++-hooks ()
   (yas/minor-mode-on)
   (when (member major-mode irony-supported-major-modes)
-    (irony-mode 1)))
+    (irony-mode 1))
+  ;; restart whitespace-mode to load the tab-width
+  (when (bound-and-true-p whitespace-mode)
+    (setq whitespace-tab-width 'tab-width)
+    (whitespace-mode -1)
+    (whitespace-mode +1))
+  )
 
 (add-hook 'c++-mode-hook 'my-c++-hooks)
 (add-hook 'c-mode-hook 'my-c++-hooks)
