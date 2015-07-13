@@ -65,17 +65,19 @@
 
 (prelude-require-package 'company-quickhelp)
 (require 'company-quickhelp)
-(company-quickhelp-mode 1)
-
+(when (window-system)
+  (company-quickhelp-mode 1))
 
 (add-hook 'ggtags-find-tag-hook (lambda ()
                                   (recenter)))
 
 (prelude-require-package 'hideshowvis)
-(dolist (hook (list 'emacs-lisp-mode-hook
-                    'c++-mode-hook))
-  (add-hook hook 'hideshowvis-enable))
-(hideshowvis-symbols)
+
+(when (window-system)
+  (dolist (hook (list 'emacs-lisp-mode-hook
+                      'c++-mode-hook))
+    (add-hook hook 'hideshowvis-enable))
+  (hideshowvis-symbols))
 
 (require 'ace-jump-mode)
 (define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
