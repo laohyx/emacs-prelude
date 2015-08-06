@@ -88,7 +88,6 @@
 
 (prelude-require-package 'key-chord)
 (require 'key-chord)
-(key-chord-define-global "mk" 'set-mark-command)
 
 
 (defun company-yasnippet-or-completion ()

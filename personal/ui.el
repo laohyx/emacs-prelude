@@ -1,6 +1,5 @@
 ;; set color theme again - let company's popup aligns with theme
 (prelude-require-package 'powerline)
-(powerline-default-theme)
 (prelude-require-package 'leuven-theme)
 (prelude-require-package 'color-theme-solarized)
 (if window-system
