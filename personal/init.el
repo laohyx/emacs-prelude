@@ -24,7 +24,7 @@
 (recentf-mode 1)
 (setq recentf-max-saved-items 50)
 (setq recentf-max-menu-items 50)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+(global-set-key "\C-x\ \C-r" 'helm-recentf)
 (add-to-list 'recentf-exclude "/.emacs.d/elpa/")
 (add-to-list 'recentf-exclude "/ido.last")
 (add-to-list 'recentf-exclude "/company-statistics-cache.el")
@@ -99,6 +99,11 @@
                                (substitute-key-definition 'company-complete-common
                                                           'company-yasnippet-or-completion
                                                           company-active-map)))
+
+(prelude-require-package 'emmet-mode)
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(setq emmet-move-cursor-between-quotes t) ;; default nil
 
 
 (add-hook 'LaTeX-mode-hook (lambda ()
