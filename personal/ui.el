@@ -20,7 +20,7 @@
 
 ;; set initial frame size
 (add-to-list 'default-frame-alist '(height . 40))
-(add-to-list 'default-frame-alist '(width . 140))
+(add-to-list 'default-frame-alist '(width . 160))
 ;; set font size. height / 10 = pt. Default is 120 (12 pt)
 ;; (set-face-attribute 'default nil :height 100)
 

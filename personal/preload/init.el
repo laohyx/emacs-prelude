@@ -1,5 +1,5 @@
 (if (window-system)
-    (setq prelude-theme 'atom-one-dark)
+    (setq prelude-theme 'dichromacy)
   (setq prelude-theme nil))
 (setq tab-width 4)
 
