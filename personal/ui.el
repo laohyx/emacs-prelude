@@ -2,8 +2,10 @@
 (prelude-require-package 'powerline)
 (prelude-require-package 'leuven-theme)
 (prelude-require-package 'color-theme-solarized)
+(prelude-require-package 'atom-dark-theme)
+(prelude-require-package 'atom-one-dark-theme)
 (if window-system
-    (load-theme prelude-theme t))
+    (load-theme 'atom-one-dark t))
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
@@ -17,8 +19,8 @@
 
 
 ;; set initial frame size
-(add-to-list 'default-frame-alist '(height . 50))
-(add-to-list 'default-frame-alist '(width . 180))
+(add-to-list 'default-frame-alist '(height . 40))
+(add-to-list 'default-frame-alist '(width . 140))
 ;; set font size. height / 10 = pt. Default is 120 (12 pt)
 ;; (set-face-attribute 'default nil :height 100)
 

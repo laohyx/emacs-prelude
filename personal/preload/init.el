@@ -11,3 +11,6 @@
 
 ;; disable flyspell
 (setq prelude-flyspell nil)
+
+(setq tramp-ssh-controlmaster-options)
+
