@@ -4,8 +4,8 @@
 (prelude-require-package 'color-theme-solarized)
 (prelude-require-package 'atom-dark-theme)
 (prelude-require-package 'atom-one-dark-theme)
-(if window-system
-    (load-theme 'atom-one-dark t))
+;; (if window-system
+;;     (load-theme 'atom-one-dark t))
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
